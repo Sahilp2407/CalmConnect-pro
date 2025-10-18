@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalmConnect - Your Mental Wellness Companion</title>
+      <link rel="stylesheet" href="style.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Development-friendly CSP to avoid DevTools/connect errors while developing locally.
+         Remove or tighten for production if your server sends its own CSP header. -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' https: data: 'unsafe-inline'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; connect-src 'self' http://127.0.0.1:5500 https:;">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span id="app-title">CalmConnect</span>
+                <img id="institution-logo" src="" alt="Institution Logo" style="display: none; height: 30px; margin-left: 10px;">
+            </div>
+            <div class="nav-links">
+                <ul class="nav-menu">
+                    <li><a id="nav-home" href="index.html">Home</a></li>
+                    <li><a id="nav-mood" href="pages/mood-check.html">Mood Check</a></li>
+                    <li><a id="nav-selfcare" href="pages/self-care.html">Self-Care</a></li>
+                    <li><a id="nav-emergency" href="pages/emergency.html">Emergency</a></li>
+                    <li><a id="nav-blog" href="pages/blog.html">Blog</a></li>
+                    <li><a id="nav-pricing" href="pages/pricing.html">Pricing</a></li>
+                    <li><a id="nav-privacy" href="pages/privacy.html">Privacy</a></li>
+                    <li style="margin-left: 18px;">
+                        <label for="chatbot-lang" style="font-size: 1rem; color: #5a8dee; font-weight: 500; margin-right: 4px;">Language:</label>
+                        <select id="chatbot-lang" style="border-radius: 8px; border: 1px solid #a5b4fc; padding: 2px 8px; font-size: 1rem; background: #fff; color: #3b466b; outline: none;">
+                            <option value="en">English</option>
+                            <option value="hi">हिन्दी</option>
+                            <option value="mr">मराठी</option>
+                        </select>
+                    </li>
+                </ul>
+                <a href="pages/institutional.html" id="institutional-link" class="nav-link" style="display: none;">Dashboard</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title" id="welcome-title">Welcome to <span class="gradient-text" id="brand-name">CalmConnect</span></h1>
+                <p class="hero-subtitle" id="welcome-desc">Your personal mental wellness companion, here to support you on your journey to better mental health.</p>
+                <div class="hero-buttons">
+                    <a href="pages/mood-check.html" class="btn btn-primary" id="btn-mood">
+                        <i class="fas fa-smile"></i>
+                        Check Your Mood
+                    </a>
+                    <a href="pages/chatbot.html" class="btn btn-secondary" id="btn-chat">
+                        <i class="fas fa-comments"></i>
+                        Start Chatting
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <i class="fas fa-brain"></i>
+                    <span>Mental Wellness</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-heart"></i>
+                    <span>Self-Care</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-users"></i>
+                    <span>Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Overview Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Everything You Need for Mental Wellness</h2>
+                <p class="section-subtitle">Comprehensive tools and support for your mental health journey</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-face-smile"></i>
+                    </div>
+                    <h3>Mood Tracking</h3>
+                    <p>Monitor your emotional well-being with our intuitive mood tracking system and visualize your progress over time.</p>
+                    <a href="pages/mood-check.html" class="feature-link">Track Your Mood</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI Chatbot Support</h3>
+                    <p>Chat with CalmBot, your compassionate AI companion that provides personalized support and guidance 24/7.</p>
+                    <a href="pages/chatbot.html" class="feature-link">Start Chatting</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-spa"></i></div>
+                    <h3>Self-Care Toolbox</h3>
+                    <p>Access guided breathing exercises, meditation sessions, gratitude journaling, and more wellness activities.</p>
+                    <a href="pages/self-care.html" class="feature-link">Explore Tools</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h3>Emergency Support</h3>
+                    <p>Immediate access to crisis hotlines, calming videos, and quick relief techniques when you need help most.</p>
+                    <a href="pages/emergency.html" class="feature-link">Get Help</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Wellness Blog</h3>
+                    <p>Read inspiring stories, practical tips, and expert advice on mental health and wellness topics.</p>
+                    <a href="pages/blog.html" class="feature-link">Read Articles</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Privacy First</h3>
+                    <p>Your data stays on your device. Complete privacy control with local storage and anonymous usage.</p>
+                    <a href="pages/privacy.html" class="feature-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Institutional Section (Hidden by default) -->
+    <section class="institutional-info" id="institutional-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Institutional Licensing</h2>
+            <div class="institutional-content">
+                <div class="institutional-features">
+                    <h3>Premium Features for Educational Institutions</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Custom branding with your institution's logo</li>
+                        <li><i class="fas fa-check"></i> Aggregated mood analytics dashboard</li>
+                        <li><i class="fas fa-check"></i> Escalation-to-counselor module</li>
+                        <li><i class="fas fa-check"></i> Usage statistics (anonymized)</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                    </ul>
+                </div>
+                <div class="institutional-pricing">
+                    <div class="pricing-card">
+                        <h4>Institutional License</h4>
+                        <div class="price">₹7,500<span>/year</span></div>
+                        <p>Per institution</p>
+                        <a href="pages/institutional.html" class="btn btn-primary">View Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Wellness Journey?</h2>
+                <p>Join thousands of users who have found support and peace with CalmConnect</p>
+                    <div class="cta-buttons">
+                        <a href="pages/mood-check.html" class="btn btn-primary">Start Your Wellness Journey</a>
+                        <a href="pages/pricing.html" class="btn btn-outline">Institutional Pricing</a>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                        <span>CalmConnect</span>
+                    </div>
+                    <p>Your mental wellness companion, supporting you every step of the way.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/mood-check.html">Mood Check</a></li>
+                        <li><a href="pages/self-care.html">Self-Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="pages/emergency.html">Emergency Help</a></li>
+                        <li><a href="pages/blog.html">Wellness Blog</a></li>
+                        <li><a href="pages/privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Remember</h4>
+                    <p class="footer-note">If you're experiencing a mental health emergency, please contact emergency services or a crisis hotline immediately.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalmConnect. Made with ❤️ for mental wellness.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js?v=2"></script>
+    <!-- Botpress Chatbot Widget START -->
+    <script>
+    const translations = {
+      en: {
+        home: "Home",
+        moodCheck: "Mood Check",
+        selfCare: "Self-Care",
+        emergency: "Emergency",
+        blog: "Blog",
+        pricing: "Pricing",
+        privacy: "Privacy",
+        welcome: "Welcome to ",
+        brand: "CalmConnect",
+        desc: "Your personal mental wellness companion, here to support you on your journey to better mental health.",
+        btnMood: "Check Your Mood",
+        btnChat: "Start Chatting"
+      },
+      hi: {
+        home: "होम",
+        moodCheck: "मूड जांचें",
+        selfCare: "स्व-देखभाल",
+        emergency: "आपातकाल",
+        blog: "ब्लॉग",
+        pricing: "मूल्य निर्धारण",
+        privacy: "गोपनीयता",
+        welcome: "CalmConnect में आपका स्वागत है",
+        brand: "CalmConnect",
+        desc: "आपका व्यक्तिगत मानसिक स्वास्थ्य साथी, जो आपकी बेहतर मानसिक स्वास्थ्य यात्रा में आपका साथ देगा।",
+        btnMood: "मूड जांचें",
+        btnChat: "चैट शुरू करें"
+      }
+    };
+    function translateSiteContent(lang) {
+      document.getElementById('nav-home').textContent = translations[lang].home;
+      document.getElementById('nav-mood').textContent = translations[lang].moodCheck;
+      document.getElementById('nav-selfcare').textContent = translations[lang].selfCare;
+      document.getElementById('nav-emergency').textContent = translations[lang].emergency;
+      document.getElementById('nav-blog').textContent = translations[lang].blog;
+      document.getElementById('nav-pricing').textContent = translations[lang].pricing;
+      document.getElementById('nav-privacy').textContent = translations[lang].privacy;
+      document.getElementById('welcome-title').innerHTML = (lang === 'en' ? translations[lang].welcome + '<span class="gradient-text" id="brand-name">' + translations[lang].brand + '</span>' : '<span class="gradient-text" id="brand-name">' + translations[lang].brand + '</span> ' + translations[lang].welcome);
+      document.getElementById('welcome-desc').textContent = translations[lang].desc;
+      document.getElementById('btn-mood').innerHTML = '<i class="fas fa-smile"></i> ' + translations[lang].btnMood;
+      document.getElementById('btn-chat').innerHTML = '<i class="fas fa-comments"></i> ' + translations[lang].btnChat;
+    }
+    function setLanguage(lang) {
+      var selector = document.getElementById('chatbot-lang');
+      if (selector) selector.value = lang;
+      translateSiteContent(lang);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      var savedLang = localStorage.getItem('siteLanguage') || 'en';
+      setLanguage(savedLang);
+      var selector = document.getElementById('chatbot-lang');
+      if (selector) {
+        selector.value = savedLang;
+        selector.addEventListener('change', function() {
+          var selectedLang = this.value;
+          localStorage.setItem('siteLanguage', selectedLang);
+          setLanguage(selectedLang);
+        });
+      }
+    });
+    </script>
+    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+    <script src="https://files.bpcontent.cloud/2025/07/18/05/20250718051507-2QEQV7KX.js" defer></script>
+    <!-- Botpress Chatbot Widget END -->
+    <script>
+        // Detect whether pages are served under "pages/" or at project root and fix links at runtime.
+        async function ensureCorrectPageLinks() {
+            const sample = 'pages/mood-check.html';
+            let pagesFolderExists = false;
+            try {
+                const res = await fetch(sample, { method: 'HEAD', cache: 'no-store' });
+                pagesFolderExists = res.ok;
+            } catch (e) {
+                pagesFolderExists = false;
+            }
+
+            // All anchors that point to an internal page (starting with 'pages/' or filename)
+            const internalNames = ['mood-check.html','self-care.html','emergency.html','blog.html','pricing.html','privacy.html','chatbot.html','institutional.html'];
+            const anchors = document.querySelectorAll('a[href]');
+            anchors.forEach(a => {
+                try {
+                    const href = a.getAttribute('href');
+                    if (!href) return;
+                    // normalize and handle both "pages/NAME" and "NAME"
+                    internalNames.forEach(name => {
+                        if (pagesFolderExists) {
+                            // ensure links point to pages/NAME
+                            if (href === name || href.endsWith('/' + name)) {
+                                a.setAttribute('href', 'pages/' + name);
+                            }
+                        } else {
+                            // ensure links point to NAME (root)
+                            if (href === 'pages/' + name || href.endsWith('/' + name)) {
+                                a.setAttribute('href', name);
+                            }
+                        }
+                    });
+                } catch (e) { /* ignore per-link errors */ }
+            });
+        }
+
+        // Initialize landing page (guarded: avoid errors if CalmConnectApp isn't loaded)
+        async function initLandingSafely() {
+            // Fix links first so subsequent logic uses corrected hrefs
+            await ensureCorrectPageLinks();
+
+            if (typeof CalmConnectApp === 'function') {
+                try {
+                    const app = new CalmConnectApp();
+                    if (app && typeof app.initLanding === 'function') {
+                        app.initLanding();
+                    }
+                } catch (e) {
+                    console.error('CalmConnectApp init failed:', e);
+                }
+            } else {
+                console.warn('CalmConnectApp not found; skipping app.initLanding()');
+            }
+
+            // Highlight only the current nav link (run after links are normalized)
+            (function() {
+              var navLinks = document.querySelectorAll('.nav-menu a, .footer a');
+              var current = window.location.pathname.split('/').pop();
+              if (!current || current === '') current = 'index.html';
+              navLinks.forEach(function(link) {
+                var href = link.getAttribute('href');
+                if (href && href.split('/').pop() === current) {
+                  link.classList.add('active');
+                } else {
+                  link.classList.remove('active');
+                }
+              });
+            })();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initLandingSafely();
+        });
+    </script>
+</body>
+</html>
+

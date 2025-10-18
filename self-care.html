@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Care - CalmConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span id="app-title">CalmConnect</span>
+                <img id="institution-logo" src="" alt="Institution Logo" style="display: none; height: 30px; margin-left: 10px;">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a id="nav-home" href="../index.html" class="nav-link">Home</a>
+                <a id="nav-mood" href="mood-check.html" class="nav-link">Mood Check</a>
+                <a id="nav-selfcare" href="self-care.html" class="nav-link active">Self-Care</a>
+                <a id="nav-emergency" href="emergency.html" class="nav-link">Emergency</a>
+                <a id="nav-blog" href="blog.html" class="nav-link">Blog</a>
+                <li><a id="nav-pricing" href="pricing.html" class="nav-link">Pricing</a></li>
+                <a id="nav-privacy" href="privacy.html" class="nav-link">Privacy</a>
+                <li style="margin-left: 18px;">
+                  <label for="chatbot-lang" style="font-size: 1rem; color: #5a8dee; font-weight: 500; margin-right: 4px;">Language:</label>
+                  <select id="chatbot-lang" style="border-radius: 8px; border: 1px solid #a5b4fc; padding: 2px 8px; font-size: 1rem; background: #fff; color: #3b466b; outline: none;">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="mr">मराठी</option>
+                  </select>
+                </li>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Self-Care Section -->
+    <section class="section page-section">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="page-title" id="selfcare-title">Self-Care Tools</h1>
+                <p class="section-subtitle" id="selfcare-subtitle">Explore tools to help you relax, recharge, and build resilience</p>
+            </div>
+            
+            <div class="self-care-grid">
+                <div class="tool-card" data-tool="breathing">
+                    <div class="tool-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Breathing Exercises</h3>
+                    <p>Guided breathing techniques to reduce stress and anxiety</p>
+                    <button class="btn btn-outline" id="selfcare-breathing-btn">Start Breathing</button>
+                </div>
+                
+                <div class="tool-card" data-tool="meditation">
+                    <div class="tool-icon">
+                        <span style="font-size: 2.6rem;">🧘‍♂️</span>
+                    </div>
+                    <h3>Meditation</h3>
+                    <p>Mindfulness and meditation sessions for inner peace</p>
+                    <button class="btn btn-outline" id="selfcare-meditation-btn">Begin Session</button>
+                </div>
+                
+                <div class="tool-card" data-tool="affirmations">
+                    <div class="tool-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Daily Affirmations</h3>
+                    <p>Positive statements to boost self-confidence</p>
+                    <button class="btn btn-outline" id="selfcare-affirmations-btn">Show Affirmation</button>
+                </div>
+                
+                <div class="tool-card" data-tool="music">
+                    <div class="tool-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Soundscapes & Music</h3>
+                    <p>Soothing sounds and music with customizable timers</p>
+                    <button class="btn btn-outline" id="selfcare-music-btn">Play Music</button>
+                </div>
+                
+                <div class="tool-card" data-tool="exercises">
+                    <div class="tool-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Gentle Exercises</h3>
+                    <p>Light physical activities to boost mood</p>
+                    <button class="btn btn-outline" id="selfcare-exercises-btn">Start Moving</button>
+                </div>
+                
+                <!-- Guided Imagery card removed -->
+                
+                <div class="tool-card" data-tool="psychology">
+                    <div class="tool-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Positive Psychology</h3>
+                    <p>Evidence-based exercises to enhance well-being</p>
+                    <button class="btn btn-outline" id="selfcare-psychology-btn">Start Exercise</button>
+                </div>
+            </div>
+            
+            <!-- Tool Modals will be inserted here -->
+            <div id="tool-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div id="tool-content"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                        <span>CalmConnect</span>
+                    </div>
+                    <p>Your mental wellness companion, supporting you every step of the way.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="mood-check.html">Mood Check</a></li>
+                        <li><a href="self-care.html">Self-Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="emergency.html">Emergency Help</a></li>
+                        <li><a href="blog.html">Wellness Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Remember</h4>
+                    <p class="footer-note">If you're experiencing a mental health emergency, please contact emergency services or a crisis hotline immediately.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalmConnect. Made with ❤️ for mental wellness.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <!-- Botpress Chatbot Widget START -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+    <script src="https://files.bpcontent.cloud/2025/07/18/05/20250718051507-2QEQV7KX.js" defer></script>
+    <!-- Botpress Chatbot Widget END -->
+    <script>
+        // Initialize self-care page
+        document.addEventListener("DOMContentLoaded", function() {
+            // Create app instance if it doesn't exist
+            if (!window.calmConnectApp) {
+                window.calmConnectApp = new CalmConnectApp();
+            }
+            
+            // Initialize self-care functionality
+            window.calmConnectApp.initSelfCare();
+        });
+    </script>
+    <script>
+(function() {
+  var navLinks = document.querySelectorAll('.nav-menu a');
+  var currentPath = window.location.pathname.replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/+$/, '');
+  navLinks.forEach(function(link) {
+    var temp = document.createElement('a');
+    temp.href = link.href;
+    var linkPath = temp.pathname.replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/+$/, '');
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+})();
+</script>
+<script>
+const translations = {
+  en: {
+    home: "Home",
+    moodCheck: "Mood Check",
+    selfCare: "Self-Care",
+    emergency: "Emergency",
+    blog: "Blog",
+    pricing: "Pricing",
+    privacy: "Privacy",
+    selfcareTitle: "Self-Care Tools",
+    selfcareSubtitle: "Explore tools to help you relax, recharge, and build resilience",
+    sectionTitle: "Choose a Self-Care Tool",
+    breathingBtn: "Start Breathing",
+    meditationBtn: "Begin Session",
+    affirmationsBtn: "Show Affirmation",
+    musicBtn: "Play Music",
+    exercisesBtn: "Start Moving",
+    psychologyBtn: "Start Exercise"
+  },
+  hi: {
+    home: "होम",
+    moodCheck: "मूड जांचें",
+    selfCare: "स्व-देखभाल",
+    emergency: "आपातकाल",
+    blog: "ब्लॉग",
+    pricing: "मूल्य निर्धारण",
+    privacy: "गोपनीयता",
+    selfcareTitle: "स्व-देखभाल उपकरण",
+    selfcareSubtitle: "आराम करने, पुनः ऊर्जा प्राप्त करने और लचीलापन बढ़ाने के लिए उपकरण खोजें",
+    sectionTitle: "एक स्व-देखभाल उपकरण चुनें",
+    breathingBtn: "सांस लेना शुरू करें",
+    meditationBtn: "सत्र शुरू करें",
+    affirmationsBtn: "सकारात्मक वचन दिखाएँ",
+    musicBtn: "संगीत चलाएँ",
+    exercisesBtn: "चलना शुरू करें",
+    psychologyBtn: "व्यायाम शुरू करें"
+  }
+};
+function translateSiteContent(lang) {
+  document.getElementById('nav-home').textContent = translations[lang].home;
+  document.getElementById('nav-mood').textContent = translations[lang].moodCheck;
+  document.getElementById('nav-selfcare').textContent = translations[lang].selfCare;
+  document.getElementById('nav-emergency').textContent = translations[lang].emergency;
+  document.getElementById('nav-blog').textContent = translations[lang].blog;
+  document.getElementById('nav-pricing').textContent = translations[lang].pricing;
+  document.getElementById('nav-privacy').textContent = translations[lang].privacy;
+  document.getElementById('selfcare-title').textContent = translations[lang].selfcareTitle;
+  document.getElementById('selfcare-subtitle').textContent = translations[lang].selfcareSubtitle;
+  document.getElementById('selfcare-section-title').textContent = translations[lang].sectionTitle;
+  document.getElementById('selfcare-breathing-btn').textContent = translations[lang].breathingBtn;
+  document.getElementById('selfcare-meditation-btn').textContent = translations[lang].meditationBtn;
+  document.getElementById('selfcare-affirmations-btn').textContent = translations[lang].affirmationsBtn;
+  document.getElementById('selfcare-music-btn').textContent = translations[lang].musicBtn;
+  document.getElementById('selfcare-exercises-btn').textContent = translations[lang].exercisesBtn;
+  document.getElementById('selfcare-psychology-btn').textContent = translations[lang].psychologyBtn;
+}
+function setLanguage(lang) {
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) selector.value = lang;
+  translateSiteContent(lang);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var savedLang = localStorage.getItem('siteLanguage') || 'en';
+  setLanguage(savedLang);
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) {
+    selector.value = savedLang;
+    selector.addEventListener('change', function() {
+      var selectedLang = this.value;
+      localStorage.setItem('siteLanguage', selectedLang);
+      setLanguage(selectedLang);
+    });
+  }
+});
+</script>
+</body>
+</html>
+

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institutional Dashboard - CalmConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span id="app-title">CalmConnect</span>
+                <img id="institution-logo" src="" alt="Institution Logo" style="display: none; height: 30px; margin-left: 10px;">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a id="nav-home" href="../index.html" class="nav-link">Home</a>
+                <a id="nav-mood" href="mood-check.html" class="nav-link">Mood Check</a>
+                <a id="nav-selfcare" href="self-care.html" class="nav-link">Self-Care</a>
+                <a id="nav-emergency" href="emergency.html" class="nav-link">Emergency</a>
+                <a id="nav-blog" href="blog.html" class="nav-link">Blog</a>
+                <li><a id="nav-pricing" href="pricing.html" class="nav-link">Pricing</a></li>
+                <a id="nav-privacy" href="privacy.html" class="nav-link">Privacy</a>
+                <a id="nav-institutional" href="institutional.html" class="nav-link active">Dashboard</a>
+                <li style="margin-left: 18px;">
+                    <label for="chatbot-lang" style="font-size: 1rem; color: #5a8dee; font-weight: 500; margin-right: 4px;">Language:</label>
+                    <select id="chatbot-lang" style="border-radius: 8px; border: 1px solid #a5b4fc; padding: 2px 8px; font-size: 1rem; background: #fff; color: #3b466b; outline: none;">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="mr">मराठी</option>
+                    </select>
+                </li>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Institutional Dashboard Section -->
+    <section class="section page-section">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="page-title" id="inst-title">Institutional Dashboard</h1>
+                <p class="section-subtitle" id="inst-subtitle">Manage your organization’s wellness programs and view analytics</p>
+            </div>
+            
+            <!-- Overview Stats -->
+            <div class="institutional-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="active-users">1,247</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="mood-entries">8,934</div>
+                        <div class="stat-label">Mood Entries</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="chat-sessions">3,456</div>
+                        <div class="stat-label">Chat Sessions</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card urgent">
+                    <div class="stat-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="escalations">23</div>
+                        <div class="stat-label">Escalations</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="institutional-charts">
+                <div class="chart-card">
+                    <h3>Mood Trends (Last 6 Months)</h3>
+                    <div class="chart-container">
+                        <canvas id="institutional-mood-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>Usage Analytics</h3>
+                    <div class="chart-container">
+                        <canvas id="usage-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Management Sections -->
+            <div class="institutional-management">
+                <div class="management-card">
+                    <h3>Custom Branding</h3>
+                    <p>Customize the appearance of CalmConnect for your institution</p>
+                    <div class="branding-preview">
+                        <div class="preview-logo">
+                            <img id="preview-logo" src="" alt="Current Logo" style="display: none;">
+                            <span id="no-logo">No logo uploaded</span>
+                        </div>
+                        <div class="preview-colors">
+                            <div class="color-preview" id="primary-color-preview"></div>
+                            <div class="color-preview" id="secondary-color-preview"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" id="configure-branding">Configure</button>
+                </div>
+
+                <div class="management-card">
+                    <h3>Counselor Integration</h3>
+                    <p>Manage escalation settings and counselor contacts</p>
+                    <div class="counselor-info">
+                        <div class="counselor-item">
+                            <strong>Primary Counselor:</strong>
+                            <span id="primary-counselor">Not configured</span>
+                        </div>
+                        <div class="counselor-item">
+                            <strong>Backup Counselor:</strong>
+                            <span id="backup-counselor">Not configured</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" id="manage-counselors">Manage</button>
+                </div>
+
+                <div class="management-card">
+                    <h3>Escalation Management</h3>
+                    <p>View and manage crisis escalations</p>
+                    <div class="escalation-list" id="escalation-list">
+                        <!-- Escalations will be populated here -->
+                    </div>
+                    <button class="btn btn-outline" id="view-escalations">View All</button>
+                </div>
+            </div>
+
+            <!-- Privacy Notice -->
+            <div class="privacy-notice">
+                <div class="notice-content">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="notice-text">
+                        <h4>Privacy Compliance</h4>
+                        <p>All data shown is aggregated and anonymized. Individual user privacy is maintained at all times. Users are identified only by anonymous IDs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branding Modal -->
+    <div id="branding-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Configure Custom Branding</h3>
+            <div class="branding-form">
+                <div class="form-group">
+                    <label for="institution-name-input">Institution Name:</label>
+                    <input type="text" id="institution-name-input" placeholder="Enter institution name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="logo-upload">Upload Logo:</label>
+                    <input type="file" id="logo-upload" accept="image/*">
+                </div>
+                
+                <div class="form-group">
+                    <label for="primary-color">Primary Color:</label>
+                    <input type="color" id="primary-color" value="#6366f1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="secondary-color">Secondary Color:</label>
+                    <input type="color" id="secondary-color" value="#8b5cf6">
+                </div>
+                
+                <div class="form-actions">
+                    <button class="btn btn-primary" id="save-branding">Save Changes</button>
+                    <button class="btn btn-outline" id="cancel-branding">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Counselor Modal -->
+    <div id="counselor-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Manage Counselor Settings</h3>
+            <div class="counselor-form">
+                <div class="form-group">
+                    <label for="primary-counselor-email">Primary Counselor Email:</label>
+                    <input type="email" id="primary-counselor-email" placeholder="counselor@institution.edu">
+                </div>
+                
+                <div class="form-group">
+                    <label for="backup-counselor-email">Backup Counselor Email:</label>
+                    <input type="email" id="backup-counselor-email" placeholder="backup@institution.edu">
+                </div>
+                
+                <div class="form-group">
+                    <label for="escalation-threshold">Escalation Threshold:</label>
+                    <select id="escalation-threshold">
+                        <option value="high">High Sensitivity</option>
+                        <option value="medium" selected>Medium Sensitivity</option>
+                        <option value="low">Low Sensitivity</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button class="btn btn-primary" id="save-counselor-settings">Save Settings</button>
+                    <button class="btn btn-outline" id="cancel-counselor-settings">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                        <span>CalmConnect</span>
+                    </div>
+                    <p>Your mental wellness companion, supporting you every step of the way.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="mood-check.html">Mood Check</a></li>
+                        <li><a href="self-care.html">Self-Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="emergency.html">Emergency Help</a></li>
+                        <li><a href="blog.html">Wellness Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Remember</h4>
+                    <p class="footer-note">If you're experiencing a mental health emergency, please contact emergency services or a crisis hotline immediately.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalmConnect. Made with ❤️ for mental wellness.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/app.js"></script>
+    <!-- Botpress Chatbot Widget START -->
+    <script>
+    document.getElementById('chatbot-lang').addEventListener('change', function() {
+      const selectedLang = this.value;
+      if (window.botpressWebChat) {
+        window.botpressWebChat.sendEvent({
+          type: 'set-language',
+          payload: { language: selectedLang }
+        });
+      }
+    });
+    </script>
+    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+    <script src="https://files.bpcontent.cloud/2025/07/18/05/20250718051507-2QEQV7KX.js" defer></script>
+    <!-- Botpress Chatbot Widget END -->
+    <script>
+        // Initialize institutional dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            const app = new CalmConnectApp();
+            app.initInstitutional();
+        });
+    </script>
+    <script>
+const translations = {
+  en: {
+    home: "Home",
+    moodCheck: "Mood Check",
+    selfCare: "Self-Care",
+    emergency: "Emergency",
+    blog: "Blog",
+    pricing: "Pricing",
+    privacy: "Privacy",
+    institutional: "Dashboard",
+    instTitle: "Institutional Dashboard",
+    instSubtitle: "Manage your organization’s wellness programs and view analytics",
+    sectionTitle: "Dashboard Overview"
+  },
+  hi: {
+    home: "होम",
+    moodCheck: "मूड जांचें",
+    selfCare: "स्व-देखभाल",
+    emergency: "आपातकाल",
+    blog: "ब्लॉग",
+    pricing: "मूल्य निर्धारण",
+    privacy: "गोपनीयता",
+    institutional: "डैशबोर्ड",
+    instTitle: "संस्थागत डैशबोर्ड",
+    instSubtitle: "अपने संगठन के वेलनेस प्रोग्राम प्रबंधित करें और विश्लेषण देखें",
+    sectionTitle: "डैशबोर्ड अवलोकन"
+  }
+};
+function translateSiteContent(lang) {
+  document.getElementById('nav-home').textContent = translations[lang].home;
+  document.getElementById('nav-mood').textContent = translations[lang].moodCheck;
+  document.getElementById('nav-selfcare').textContent = translations[lang].selfCare;
+  document.getElementById('nav-emergency').textContent = translations[lang].emergency;
+  document.getElementById('nav-blog').textContent = translations[lang].blog;
+  document.getElementById('nav-pricing').textContent = translations[lang].pricing;
+  document.getElementById('nav-privacy').textContent = translations[lang].privacy;
+  document.getElementById('nav-institutional').textContent = translations[lang].institutional;
+  document.getElementById('inst-title').textContent = translations[lang].instTitle;
+  document.getElementById('inst-subtitle').textContent = translations[lang].instSubtitle;
+  document.getElementById('inst-section-title').textContent = translations[lang].sectionTitle;
+}
+function setLanguage(lang) {
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) selector.value = lang;
+  translateSiteContent(lang);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var savedLang = localStorage.getItem('siteLanguage') || 'en';
+  setLanguage(savedLang);
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) {
+    selector.value = savedLang;
+    selector.addEventListener('change', function() {
+      var selectedLang = this.value;
+      localStorage.setItem('siteLanguage', selectedLang);
+      setLanguage(selectedLang);
+    });
+  }
+});
+</script>
+</body>
+</html>
+

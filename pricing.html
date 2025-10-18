@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institutional Pricing - CalmConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">💙</span>
+                <span class="logo-text">CalmConnect</span>
+            </div>
+            <ul class="nav-menu">
+                <a id="nav-home" href="../index.html" class="nav-link">Home</a>
+                <a id="nav-mood" href="mood-check.html" class="nav-link">Mood Check</a>
+                <a id="nav-selfcare" href="self-care.html" class="nav-link">Self-Care</a>
+                <a id="nav-emergency" href="emergency.html" class="nav-link">Emergency</a>
+                <a id="nav-blog" href="blog.html" class="nav-link">Blog</a>
+                <li><a id="nav-pricing" href="pricing.html" class="nav-link active">Pricing</a></li>
+                <a id="nav-privacy" href="privacy.html" class="nav-link">Privacy</a>
+                <li style="margin-left: 18px;">
+                    <label for="chatbot-lang" style="font-size: 1rem; color: #5a8dee; font-weight: 500; margin-right: 4px;">Language:</label>
+                    <select id="chatbot-lang" style="border-radius: 8px; border: 1px solid #a5b4fc; padding: 2px 8px; font-size: 1rem; background: #fff; color: #3b466b; outline: none;">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="mr">मराठी</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="container">
+                <h1>Institutional Licensing</h1>
+                <p class="hero-subtitle">Bring mental wellness support to your entire educational institution</p>
+            </div>
+        </section>
+
+        <section class="pricing-section">
+            <div class="container">
+                <div class="pricing-grid">
+                    <!-- Individual Plan -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Individual</h3>
+                            <div class="price">
+                                <span class="currency">₹</span>
+                                <span class="amount">0</span>
+                                <span class="period">/forever</span>
+                            </div>
+                            <p class="pricing-description">Perfect for personal mental wellness</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li>✅ Mood tracking and analytics</li>
+                                <li>✅ AI chatbot support</li>
+                                <li>✅ Self-care toolbox</li>
+                                <li>✅ Emergency support resources</li>
+                                <li>✅ Wellness blog access</li>
+                                <li>✅ Privacy controls</li>
+                                <li>✅ Offline functionality</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-action">
+                            <button class="btn btn-outline" onclick="window.location.href='../index.html'">
+                                Get Started Free
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Institutional Plan -->
+                    <div class="pricing-card featured">
+                        <div class="featured-badge">Most Popular</div>
+                        <div class="pricing-header">
+                            <h3>Institutional</h3>
+                            <div class="price">
+                                <span class="currency">₹</span>
+                                <span class="amount">7,500</span>
+                                <span class="period">/year per institution</span>
+                            </div>
+                            <p class="pricing-description">Comprehensive solution for schools and colleges</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li>✅ Everything in Individual plan</li>
+                                <li>🎨 <strong>Custom logo and branding</strong></li>
+                                <li>📊 <strong>Institutional mood analytics dashboard</strong></li>
+                                <li>🚨 <strong>Escalation-to-counselor module</strong></li>
+                                <li>📈 Aggregated usage statistics</li>
+                                <li>🔒 Anonymous data sharing</li>
+                                <li>👥 Unlimited student access</li>
+                                <li>📞 Priority support</li>
+                                <li>🎓 Educational resources</li>
+                                <li>📋 Compliance reporting</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-action">
+                            <button class="btn btn-primary" onclick="openContactModal()">
+                                Contact for Demo
+                            </button>
+                            <p class="trial-info">Free 30-day trial available</p>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise Plan -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Enterprise</h3>
+                            <div class="price">
+                                <span class="currency">₹</span>
+                                <span class="amount">Custom</span>
+                                <span class="period">/year</span>
+                            </div>
+                            <p class="pricing-description">For large institutions with special requirements</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li>✅ Everything in Institutional plan</li>
+                                <li>🔧 Custom feature development</li>
+                                <li>🔗 API integrations</li>
+                                <li>🏥 HIPAA compliance options</li>
+                                <li>📊 Advanced analytics</li>
+                                <li>👨‍💼 Dedicated account manager</li>
+                                <li>🎯 Custom training programs</li>
+                                <li>⚡ SLA guarantees</li>
+                                <li>🔐 Enhanced security</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-action">
+                            <button class="btn btn-outline" onclick="openContactModal()">
+                                Contact Sales
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-comparison">
+            <div class="container">
+                <h2>Feature Comparison</h2>
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Features</th>
+                                <th>Individual</th>
+                                <th>Institutional</th>
+                                <th>Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mood Tracking</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>AI Chatbot</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Self-Care Tools</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Emergency Support</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Custom Branding</td>
+                                <td>❌</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Analytics Dashboard</td>
+                                <td>Personal Only</td>
+                                <td>Institutional</td>
+                                <td>Advanced</td>
+                            </tr>
+                            <tr>
+                                <td>Counselor Escalation</td>
+                                <td>❌</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Number of Users</td>
+                                <td>1</td>
+                                <td>Unlimited</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Support Level</td>
+                                <td>Community</td>
+                                <td>Priority</td>
+                                <td>Dedicated</td>
+                            </tr>
+                            <tr>
+                                <td>API Access</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>✅</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="institutional-benefits">
+            <div class="container">
+                <h2>Why Choose Institutional Licensing?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎨</div>
+                        <h3>Custom Branding</h3>
+                        <p>Upload your institution's logo and customize colors to match your brand identity. Create a seamless experience for your students.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📊</div>
+                        <h3>Analytics Dashboard</h3>
+                        <p>Monitor aggregated mental health trends across your institution while maintaining complete student anonymity and privacy.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🚨</div>
+                        <h3>Crisis Management</h3>
+                        <p>Automatic escalation system alerts counselors when students express concerning thoughts, enabling immediate intervention.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔒</div>
+                        <h3>Privacy Compliant</h3>
+                        <p>All data remains anonymous and aggregated. No personal information is collected or shared, ensuring FERPA compliance.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👥</div>
+                        <h3>Unlimited Access</h3>
+                        <p>All students, faculty, and staff can access the platform with no per-user fees. Scale across your entire institution.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📞</div>
+                        <h3>Priority Support</h3>
+                        <p>Dedicated support team to help with implementation, training, and ongoing technical assistance for your institution.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>What Institutions Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"CalmConnect has transformed how we support student mental health. The analytics help us understand trends while the escalation system ensures no student falls through the cracks."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Dr. Sarah Johnson</strong>
+                            <span>Director of Student Services, Delhi University</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The custom branding made students feel like this was truly part of our institution. Usage rates increased by 300% after implementation."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Prof. Rajesh Kumar</strong>
+                            <span>Dean of Student Affairs, IIT Mumbai</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The privacy-first approach was crucial for us. Students trust the system because they know their data is protected and anonymous."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Dr. Priya Sharma</strong>
+                            <span>Chief Counselor, Bangalore Institute of Technology</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Student Mental Health?</h2>
+                    <p>Join hundreds of institutions already using CalmConnect to support their students' mental wellness.</p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary" onclick="openContactModal()">
+                            Schedule a Demo
+                        </button>
+                        <button class="btn btn-outline" onclick="window.location.href='../index.html?institution=Demo%20University'">
+                            Try Demo Mode
+                        </button>
+                    </div>
+                    <p class="cta-note">Free 30-day trial • No setup fees • Cancel anytime</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeContactModal()">&times;</span>
+            <h2>Contact Us for Institutional Licensing</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="institution-name">Institution Name *</label>
+                    <input type="text" id="institution-name" name="institutionName" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-name">Your Name *</label>
+                    <input type="text" id="contact-name" name="contactName" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email Address *</label>
+                    <input type="email" id="contact-email" name="contactEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-phone">Phone Number</label>
+                    <input type="tel" id="contact-phone" name="contactPhone">
+                </div>
+                <div class="form-group">
+                    <label for="student-count">Approximate Number of Students</label>
+                    <select id="student-count" name="studentCount">
+                        <option value="">Select range</option>
+                        <option value="under-500">Under 500</option>
+                        <option value="500-1000">500 - 1,000</option>
+                        <option value="1000-5000">1,000 - 5,000</option>
+                        <option value="5000-10000">5,000 - 10,000</option>
+                        <option value="over-10000">Over 10,000</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="interest-type">I'm interested in:</label>
+                    <select id="interest-type" name="interestType">
+                        <option value="demo">Scheduling a demo</option>
+                        <option value="trial">Starting a free trial</option>
+                        <option value="pricing">Getting pricing information</option>
+                        <option value="features">Learning about features</option>
+                        <option value="implementation">Implementation timeline</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your specific needs or questions..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Send Request</button>
+                    <button type="button" class="btn btn-outline" onclick="closeContactModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CalmConnect</h3>
+                    <p>Supporting mental wellness for individuals and institutions worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>For Institutions</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#demo">Request Demo</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#help">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>📧 institutions@calmconnect.com</li>
+                        <li>📞 +91-800-CALM-HELP</li>
+                        <li>🏢 Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalmConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <!-- Botpress Chatbot Widget START -->
+    <script>
+function setLanguage(lang) {
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) selector.value = lang;
+  if (window.botpressWebChat) {
+    window.botpressWebChat.sendEvent({
+      type: 'set-language',
+      payload: { language: lang }
+    });
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var savedLang = localStorage.getItem('siteLanguage') || 'en';
+  setLanguage(savedLang);
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) {
+    selector.value = savedLang;
+    selector.addEventListener('change', function() {
+      var selectedLang = this.value;
+      localStorage.setItem('siteLanguage', selectedLang);
+      setLanguage(selectedLang);
+    });
+  }
+});
+</script>
+    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+    <script src="https://files.bpcontent.cloud/2025/07/18/05/20250718051507-2QEQV7KX.js" defer></script>
+    <!-- Botpress Chatbot Widget END -->
+    <script>
+        function openContactModal() {
+            document.getElementById('contact-modal').style.display = 'block';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contact-modal').style.display = 'none';
+        }
+
+        // Handle contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // In a real application, this would send to a server
+            // For demo purposes, we'll show a success message
+            alert('Thank you for your interest! We will contact you within 24 hours to schedule your demo.');
+            
+            // Save inquiry to localStorage for demo purposes
+            const inquiries = JSON.parse(localStorage.getItem('calmconnect_inquiries') || '[]');
+            inquiries.push({
+                ...data,
+                timestamp: new Date().toISOString(),
+                status: 'pending'
+            });
+            localStorage.setItem('calmconnect_inquiries', JSON.stringify(inquiries));
+            
+            // Reset form and close modal
+            this.reset();
+            closeContactModal();
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('contact-modal');
+            if (e.target === modal) {
+                closeContactModal();
+            }
+        });
+    </script>
+    <script>
+(function() {
+  var navLinks = document.querySelectorAll('.nav-menu a');
+  var currentPath = window.location.pathname.replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/+$/, '');
+  navLinks.forEach(function(link) {
+    var temp = document.createElement('a');
+    temp.href = link.href;
+    var linkPath = temp.pathname.replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/+$/, '');
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+})();
+</script>
+</body>
+</html>
+

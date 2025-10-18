@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Check - CalmConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span id="app-title">CalmConnect</span>
+                <img id="institution-logo" src="" alt="Institution Logo" style="display: none; height: 30px; margin-left: 10px;">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a id="nav-home" href="../index.html" class="nav-link">Home</a>
+                <a id="nav-mood" href="mood-check.html" class="nav-link active">Mood Check</a>
+                <a id="nav-selfcare" href="self-care.html" class="nav-link">Self-Care</a>
+                <a id="nav-emergency" href="emergency.html" class="nav-link">Emergency</a>
+                <a id="nav-blog" href="blog.html" class="nav-link">Blog</a>
+                <li><a id="nav-pricing" href="pricing.html" class="nav-link">Pricing</a></li>
+                <a id="nav-privacy" href="privacy.html" class="nav-link">Privacy</a>
+                <li style="margin-left: 18px;">
+                  <label for="chatbot-lang" style="font-size: 1rem; color: #5a8dee; font-weight: 500; margin-right: 4px;">Language:</label>
+                  <select id="chatbot-lang" style="border-radius: 8px; border: 1px solid #a5b4fc; padding: 2px 8px; font-size: 1rem; background: #fff; color: #3b466b; outline: none;">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="mr">मराठी</option>
+                  </select>
+                </li>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mood Check Section -->
+    <section class="section page-section">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="page-title" id="mood-title">How are you feeling today?</h1>
+                <p class="section-subtitle" id="mood-subtitle">Track your mood and see your emotional journey over time</p>
+            </div>
+            
+            <div class="mood-check-container">
+                <div class="mood-selector">
+                    <h3 id="mood-select-label">Select your current mood:</h3>
+                    <div class="mood-options">
+                        <div class="mood-option" data-mood="excellent">
+                            <div class="mood-emoji">😄</div>
+                            <span>Excellent</span>
+                        </div>
+                        <div class="mood-option" data-mood="good">
+                            <div class="mood-emoji">😊</div>
+                            <span>Good</span>
+                        </div>
+                        <div class="mood-option" data-mood="angry">
+                            <div class="mood-emoji">😠</div>
+                            <span>Angry</span>
+                        </div>
+                        <div class="mood-option" data-mood="low">
+                            <div class="mood-emoji">😔</div>
+                            <span>Low</span>
+                        </div>
+                        <div class="mood-option" data-mood="struggling">
+                            <div class="mood-emoji">😢</div>
+                            <span>Struggling</span>
+                        </div>
+                    </div>
+                    <button id="toggle-recommendations-btn" class="btn mood-toggle-btn">Show Wellbeing Recommendations</button>
+                    <div id="mood-recommendations-section" style="display:none;"></div>
+                    <div class="mood-details">
+                        <textarea id="mood-notes" placeholder="Tell us more about how you're feeling today... (optional)"></textarea>
+                        <button class="btn btn-primary" id="save-mood">Save Mood Entry</button>
+                        <button class="btn btn-outline" id="view-mood-history" style="margin-top: 0.5rem;">View/Edit Past Entries</button>
+                    </div>
+                </div>
+                
+                <div class="mood-dashboard">
+                    <h3 id="mood-journey-title">Your Mood Journey</h3>
+                    <div class="chart-container">
+                        <canvas id="mood-chart"></canvas>
+                    </div>
+                    <div class="mood-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" id="streak-count">0</div>
+                            <div class="stat-label" id="stat-streak">Day Streak</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="avg-mood">-</div>
+                            <div class="stat-label" id="stat-avg">Avg Mood</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="total-entries">0</div>
+                            <div class="stat-label" id="stat-total">Total Entries</div>
+                        </div>
+                    </div>
+                    <div class="badges-section" id="badges-section">
+                        <h3 style="margin-top:32px;">Your Badges</h3>
+                        <div class="badges-list" id="badges-list"></div>
+                        <div id="badge-tooltip" class="badge-tooltip" style="display:none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Mood History -->
+    <div id="mood-history-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" id="close-mood-history">&times;</span>
+            <h3 id="mood-history-title">Your Mood Entries</h3>
+            <div id="mood-history-list"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" style="display:none;"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                        <span>CalmConnect</span>
+                    </div>
+                    <p>Your mental wellness companion, supporting you every step of the way.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="mood-check.html">Mood Check</a></li>
+                        <li><a href="self-care.html">Self-Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="emergency.html">Emergency Help</a></li>
+                        <li><a href="blog.html">Wellness Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Remember</h4>
+                    <p class="footer-note">If you're experiencing a mental health emergency, please contact emergency services or a crisis hotline immediately.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalmConnect. Made with ❤️ for mental wellness.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/app.js"></script>
+    <!-- Botpress Chatbot Widget START -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+    <script src="https://files.bpcontent.cloud/2025/07/18/05/20250718051507-2QEQV7KX.js" defer></script>
+    <!-- Botpress Chatbot Widget END -->
+    <script>
+        // Initialize mood check page
+        document.addEventListener('DOMContentLoaded', function() {
+            const app = new CalmConnectApp();
+            app.initMoodCheck();
+        });
+    </script>
+    <script>
+(function() {
+  var navLinks = document.querySelectorAll('.nav-menu a');
+  var currentPath = window.location.pathname.replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/+$/, '');
+  navLinks.forEach(function(link) {
+    var temp = document.createElement('a');
+    temp.href = link.href;
+    var linkPath = temp.pathname.replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/+$/, '');
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+})();
+</script>
+<script>
+// Mood recommendations logic
+const recommendations = {
+  excellent: [
+    { icon: '🌟', text: 'Share your positivity with someone today!' },
+    { icon: '🏃‍♂️', text: 'Go for a walk and enjoy the moment.' },
+    { icon: '🎶', text: 'Listen to your favorite upbeat music.' },
+    { icon: '🍉', text: 'Enjoy a fresh fruit salad.' },
+    { icon: '📸', text: 'Capture a happy moment.' },
+    { icon: '🧘‍♀️', text: 'Try a short meditation.' }
+  ],
+  good: [
+    { icon: '🍎', text: 'Enjoy a healthy snack or fruit.' },
+    { icon: '📚', text: 'Read something inspiring.' },
+    { icon: '💬', text: 'Check in with a friend.' },
+    { icon: '🥗', text: 'Make a colorful salad.' },
+    { icon: '☕', text: 'Sip a warm herbal tea.' },
+    { icon: '🎨', text: 'Do something creative.' }
+  ],
+  angry: [
+    { icon: '🧘‍♂️', text: 'Try a short breathing exercise.' },
+    { icon: '✍️', text: 'Write down your feelings.' },
+    { icon: '🚶‍♂️', text: 'Take a brisk walk to cool off.' },
+    { icon: '🍵', text: 'Drink calming chamomile tea.' },
+    { icon: '🍫', text: 'Have a small piece of dark chocolate.' },
+    { icon: '🎧', text: 'Listen to soothing music.' }
+  ],
+  low: [
+    { icon: '🍫', text: 'Treat yourself to a little dark chocolate.' },
+    { icon: '🛁', text: 'Take a warm bath or shower.' },
+    { icon: '🎬', text: 'Watch a feel-good movie.' },
+    { icon: '🍲', text: 'Enjoy a bowl of comforting soup.' },
+    { icon: '🧦', text: 'Wear your coziest socks.' },
+    { icon: '☀️', text: 'Sit by a sunny window.' }
+  ],
+  struggling: [
+    { icon: '🍵', text: 'Sip some calming chamomile tea.' },
+    { icon: '🤗', text: 'Reach out to someone you trust.' },
+    { icon: '🛌', text: 'Rest and allow yourself to recharge.' },
+    { icon: '🍲', text: 'Eat a warm, nourishing meal.' },
+    { icon: '📖', text: 'Read a comforting book.' },
+    { icon: '🧣', text: 'Wrap up in a soft blanket.' }
+  ]
+};
+
+let selectedMood = null;
+
+function getRandomSuggestions(arr, count) {
+  const shuffled = arr.slice().sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
+
+function renderRecommendations(mood) {
+  const section = document.getElementById('mood-recommendations-section');
+  if (!mood || !recommendations[mood]) {
+    section.innerHTML = `<div class='mood-recommendations-card' style='text-align:center;'><span style='font-size:1.2em;'>🧘‍♀️</span><br><span style='color:#5a8dee;'>Select a mood above to get personalized recommendations!</span></div>`;
+    return;
+  }
+  // Pick 3 or 4 random unique suggestions
+  const count = Math.floor(Math.random() * 2) + 3; // 3 or 4
+  const picks = getRandomSuggestions(recommendations[mood], count);
+  section.innerHTML = `
+    <div class="mood-recommendations-card">
+      <h4>Wellbeing Recommendations</h4>
+      <div class="mood-recommendations-list">
+        ${picks.map(r => `
+          <div class="mood-recommendation-item fade-in">
+            <span class="mood-recommendation-icon">${r.icon}</span>
+            <span class="mood-recommendation-text">${r.text}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// Attach to mood selection
+const moodOptions = document.querySelectorAll('.mood-option');
+moodOptions.forEach(opt => {
+  opt.addEventListener('click', function() {
+    selectedMood = this.getAttribute('data-mood');
+    // If recommendations are visible, update them live
+    const recSection = document.getElementById('mood-recommendations-section');
+    if (recSection.style.display !== 'none') {
+      renderRecommendations(selectedMood);
+    }
+  });
+});
+
+// Toggle recommendations button
+const toggleBtn = document.getElementById('toggle-recommendations-btn');
+const recSection = document.getElementById('mood-recommendations-section');
+let recVisible = false;
+toggleBtn.addEventListener('click', function() {
+  recVisible = !recVisible;
+  if (recVisible) {
+    recSection.style.display = '';
+    renderRecommendations(selectedMood);
+    toggleBtn.textContent = 'Hide Wellbeing Recommendations';
+  } else {
+    recSection.style.display = 'none';
+    toggleBtn.textContent = 'Show Wellbeing Recommendations';
+  }
+});
+</script>
+<script>
+const translations = {
+  en: {
+    home: "Home",
+    moodCheck: "Mood Check",
+    selfCare: "Self-Care",
+    emergency: "Emergency",
+    blog: "Blog",
+    pricing: "Pricing",
+    privacy: "Privacy",
+    moodTitle: "How are you feeling today?",
+    moodSubtitle: "Track your mood and see your emotional journey over time",
+    selectMood: "Select your current mood:",
+    saveMood: "Save Mood Entry",
+    viewHistory: "View/Edit Past Entries",
+    journey: "Your Mood Journey",
+    streak: "Day Streak",
+    avg: "Avg Mood",
+    total: "Total Entries",
+    entries: "Your Mood Entries"
+  },
+  hi: {
+    home: "होम",
+    moodCheck: "मूड जांचें",
+    selfCare: "स्व-देखभाल",
+    emergency: "आपातकाल",
+    blog: "ब्लॉग",
+    pricing: "मूल्य निर्धारण",
+    privacy: "गोपनीयता",
+    moodTitle: "आज आप कैसा महसूस कर रहे हैं?",
+    moodSubtitle: "अपने मूड को ट्रैक करें और अपनी भावनात्मक यात्रा देखें",
+    selectMood: "अपना वर्तमान मूड चुनें:",
+    saveMood: "मूड प्रविष्टि सहेजें",
+    viewHistory: "पिछली प्रविष्टियाँ देखें/संपादित करें",
+    journey: "आपकी मूड यात्रा",
+    streak: "दिनों की श्रृंखला",
+    avg: "औसत मूड",
+    total: "कुल प्रविष्टियाँ",
+    entries: "आपकी मूड प्रविष्टियाँ"
+  }
+};
+function translateSiteContent(lang) {
+  document.getElementById('nav-home').textContent = translations[lang].home;
+  document.getElementById('nav-mood').textContent = translations[lang].moodCheck;
+  document.getElementById('nav-selfcare').textContent = translations[lang].selfCare;
+  document.getElementById('nav-emergency').textContent = translations[lang].emergency;
+  document.getElementById('nav-blog').textContent = translations[lang].blog;
+  document.getElementById('nav-pricing').textContent = translations[lang].pricing;
+  document.getElementById('nav-privacy').textContent = translations[lang].privacy;
+  document.getElementById('mood-title').textContent = translations[lang].moodTitle;
+  document.getElementById('mood-subtitle').textContent = translations[lang].moodSubtitle;
+  document.getElementById('mood-select-label').textContent = translations[lang].selectMood;
+  document.getElementById('save-mood').textContent = translations[lang].saveMood;
+  document.getElementById('view-mood-history').textContent = translations[lang].viewHistory;
+  document.getElementById('mood-journey-title').textContent = translations[lang].journey;
+  document.getElementById('stat-streak').textContent = translations[lang].streak;
+  document.getElementById('stat-avg').textContent = translations[lang].avg;
+  document.getElementById('stat-total').textContent = translations[lang].total;
+  document.getElementById('mood-history-title').textContent = translations[lang].entries;
+}
+function setLanguage(lang) {
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) selector.value = lang;
+  translateSiteContent(lang);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var savedLang = localStorage.getItem('siteLanguage') || 'en';
+  setLanguage(savedLang);
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) {
+    selector.value = savedLang;
+    selector.addEventListener('change', function() {
+      var selectedLang = this.value;
+      localStorage.setItem('siteLanguage', selectedLang);
+      setLanguage(selectedLang);
+    });
+  }
+});
+</script>
+<script>
+const BADGES = [
+  {
+    id: 'mindful-streak',
+    name: 'Mindful Streak',
+    desc: '7-day mood check-in streak!',
+    icon: '🌟',
+    unlock: (app) => app.calculateMoodStreak() >= 7
+  },
+  {
+    id: 'anxiety-survivor',
+    name: 'Anxiety Survivor',
+    desc: 'Logged a mood when feeling anxious, angry, or struggling.',
+    icon: '🛡️',
+    unlock: (app) => app.moodHistory.some(e => ['angry','struggling'].includes(e.mood))
+  },
+  {
+    id: 'consistency-champ',
+    name: 'Consistency Champ',
+    desc: 'Checked in 5+ days in a row!',
+    icon: '🏅',
+    unlock: (app) => app.calculateMoodStreak() >= 5
+  }
+];
+function getEarnedBadges(app) {
+  let earned = JSON.parse(localStorage.getItem('earnedBadges')||'[]');
+  // Re-check all badges
+  BADGES.forEach(badge => {
+    if (badge.unlock(app) && !earned.includes(badge.id)) {
+      earned.push(badge.id);
+      showBadgeUnlockAnimation(badge);
+    }
+  });
+  localStorage.setItem('earnedBadges', JSON.stringify(earned));
+  return earned;
+}
+function showBadges(app) {
+  const list = document.getElementById('badges-list');
+  if (!list) return;
+  const earned = getEarnedBadges(app);
+  list.innerHTML = BADGES.map(badge => `
+    <div class="badge-glass${earned.includes(badge.id)?' earned':''}" data-badge="${badge.id}" tabindex="0">
+      <div class="badge-circle">
+        <span class="badge-icon">${badge.icon}</span>
+        ${!earned.includes(badge.id)?'<span class="badge-lock">🔒</span>':''}
+        ${earned.includes(badge.id)?'<span class="badge-glow"></span>':''}
+      </div>
+      <div class="badge-name">${badge.name}</div>
+    </div>
+  `).join('');
+  // Tooltip logic
+  document.querySelectorAll('.badge-glass').forEach(el => {
+    el.addEventListener('mouseenter', showTooltip);
+    el.addEventListener('mouseleave', hideTooltip);
+    el.addEventListener('focus', showTooltip);
+    el.addEventListener('blur', hideTooltip);
+    el.addEventListener('touchstart', showTooltip, {passive:true});
+    el.addEventListener('touchend', hideTooltip, {passive:true});
+  });
+}
+function showBadgeUnlockAnimation(badge) {
+  const list = document.getElementById('badges-list');
+  if (!list) return;
+  // Simple animation: add a class to the badge after rendering
+  setTimeout(() => {
+    const el = list.querySelector(`.badge-glass[data-badge='${badge.id}']`);
+    if (el) {
+      el.classList.add('just-unlocked');
+      setTimeout(()=>el.classList.remove('just-unlocked'), 2000);
+    }
+  }, 200);
+}
+function showTooltip(e) {
+  const badgeId = this.getAttribute('data-badge');
+  const badge = BADGES.find(b => b.id === badgeId);
+  if (!badge) return;
+  const tooltip = document.getElementById('badge-tooltip');
+  tooltip.textContent = badge.desc;
+  tooltip.style.display = 'block';
+  const rect = this.getBoundingClientRect();
+  tooltip.style.left = (rect.left + rect.width/2 - 80) + 'px';
+  tooltip.style.top = (rect.top - 38 + window.scrollY) + 'px';
+}
+function hideTooltip() {
+  const tooltip = document.getElementById('badge-tooltip');
+  tooltip.style.display = 'none';
+}
+// Patch CalmConnectApp to call showBadges after mood entry save and on load
+const origSaveMoodEntry = CalmConnectApp.prototype.saveMoodEntry;
+CalmConnectApp.prototype.saveMoodEntry = function() {
+  origSaveMoodEntry.apply(this, arguments);
+  showBadges(this);
+};
+const origRenderMoodChart = CalmConnectApp.prototype.renderMoodChart;
+CalmConnectApp.prototype.renderMoodChart = function() {
+  origRenderMoodChart.apply(this, arguments);
+  showBadges(this);
+};
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.calmConnectApp) showBadges(window.calmConnectApp);
+});
+</script>
+<script>
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.style.display = 'block';
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(()=>toast.style.display='none', 300);
+  }, 2500);
+}
+// Patch CalmConnectApp to use toast instead of alert for mood selection
+const origSaveMoodEntry3 = CalmConnectApp.prototype.saveMoodEntry;
+CalmConnectApp.prototype.saveMoodEntry = function() {
+  if (!this.currentMood) {
+    showToast('Please select a mood first!');
+    return;
+  }
+  origSaveMoodEntry3.apply(this, arguments);
+};
+</script>
+<style>
+.badges-section { margin-top: 32px; }
+.badges-list {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 18px;
+}
+.badge-glass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  min-width: 110px;
+  min-height: 140px;
+  transition: transform 0.18s;
+  opacity: 0.7;
+}
+.badge-glass.earned {
+  opacity: 1;
+  transform: scale(1.08);
+}
+.badge-glass:focus {
+  box-shadow: 0 0 0 2px #a5b4fc;
+}
+.badge-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  box-shadow: 0 4px 24px 0 rgba(120, 144, 255, 0.13), 0 1.5px 8px 0 rgba(120, 144, 255, 0.08);
+  backdrop-filter: blur(8px) saturate(1.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 10px;
+  border: 3px solid #e0e7ff;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.badge-glass.earned .badge-circle {
+  border: 3px solid #a5b4fc;
+  box-shadow: 0 0 24px 4px #a5b4fc88, 0 2px 12px rgba(120,144,255,0.13);
+}
+.badge-glow {
+  position: absolute;
+  top: -8px; left: -8px; right: -8px; bottom: -8px;
+  border-radius: 50%;
+  box-shadow: 0 0 32px 8px #a5b4fc66, 0 0 0 2px #c4b5fd;
+  pointer-events: none;
+  animation: badgeGlow 1.2s infinite alternate;
+}
+@keyframes badgeGlow {
+  from { box-shadow: 0 0 32px 8px #a5b4fc33, 0 0 0 2px #c4b5fd; }
+  to { box-shadow: 0 0 48px 16px #a5b4fc99, 0 0 0 2px #c4b5fd; }
+}
+.badge-icon {
+  font-size: 2.2em;
+  z-index: 1;
+}
+.badge-lock {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  font-size: 1.2em;
+  color: #bdbdbd;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  padding: 2px 4px;
+  z-index: 2;
+}
+.badge-name {
+  font-weight: 700;
+  font-size: 1.08em;
+  margin-top: 2px;
+  color: #5a8dee;
+  text-align: center;
+}
+.badge-tooltip {
+  position: absolute;
+  min-width: 160px;
+  max-width: 220px;
+  background: rgba(255,255,255,0.98);
+  color: #3b466b;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(120,144,255,0.13);
+  padding: 10px 14px;
+  font-size: 1em;
+  z-index: 9999;
+  pointer-events: none;
+  transition: opacity 0.18s;
+  opacity: 1;
+  text-align: center;
+}
+.badge-glass.earned .badge-circle {
+  animation: badgePop 0.7s cubic-bezier(.7,-0.2,.7,1.5);
+}
+@keyframes badgePop {
+  0% { transform: scale(1) rotate(-2deg); }
+  30% { transform: scale(1.18) rotate(2deg); }
+  60% { transform: scale(0.95) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 38px;
+  transform: translateX(-50%);
+  min-width: 220px;
+  max-width: 90vw;
+  background: rgba(60, 60, 80, 0.97);
+  color: #fff;
+  font-size: 1.08em;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px 0 rgba(120, 144, 255, 0.13);
+  padding: 16px 32px;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  text-align: center;
+}
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1.04);
+}
+.toast:active {
+  opacity: 0.7;
+}
+</style>
+</body>
+</html>
+

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy - CalmConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span id="app-title">CalmConnect</span>
+                <img id="institution-logo" src="" alt="Institution Logo" style="display: none; height: 30px; margin-left: 10px;">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a id="nav-home" href="../index.html" class="nav-link">Home</a>
+                <a id="nav-mood" href="mood-check.html" class="nav-link">Mood Check</a>
+                <a id="nav-selfcare" href="self-care.html" class="nav-link">Self-Care</a>
+                <a id="nav-emergency" href="emergency.html" class="nav-link">Emergency</a>
+                <a id="nav-blog" href="blog.html" class="nav-link">Blog</a>
+                <li><a id="nav-pricing" href="pricing.html" class="nav-link">Pricing</a></li>
+                <a id="nav-privacy" href="privacy.html" class="nav-link active">Privacy</a>
+                <li style="margin-left: 18px;">
+                  <label for="chatbot-lang" style="font-size: 1rem; color: #5a8dee; font-weight: 500; margin-right: 4px;">Language:</label>
+                  <select id="chatbot-lang" style="border-radius: 8px; border: 1px solid #a5b4fc; padding: 2px 8px; font-size: 1rem; background: #fff; color: #3b466b; outline: none;">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="mr">मराठी</option>
+                  </select>
+                </li>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Privacy Section -->
+    <section class="section page-section">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="page-title" id="privacy-title">Your Privacy Matters</h1>
+                <p class="section-subtitle" id="privacy-subtitle">We're committed to protecting your personal information and mental health data</p>
+            </div>
+            
+            <div class="privacy-content">
+                <div class="privacy-features">
+                    <div class="privacy-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Data Encryption</h3>
+                        <p>All your data is encrypted both in transit and at rest using industry-standard security protocols.</p>
+                    </div>
+                    
+                    <div class="privacy-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-lock"></i>
+                        </div>
+                        <h3>Anonymous Usage</h3>
+                        <p>Use CalmConnect without creating an account. Your mood data stays on your device.</p>
+                    </div>
+                    
+                    <div class="privacy-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-trash-alt"></i>
+                        </div>
+                        <h3>Data Control</h3>
+                        <p>You have full control over your data. Delete it anytime with a single click.</p>
+                    </div>
+                </div>
+                
+                <div class="privacy-controls">
+                    <h3>Privacy Controls</h3>
+                    <div class="control-group">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="save-mood-data" checked>
+                            <span class="slider"></span>
+                            Save mood tracking data locally
+                        </label>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="save-chat-history">
+                            <span class="slider"></span>
+                            Save chat conversations locally
+                        </label>
+                    </div>
+                    
+                    <div class="control-group">
+                        <button class="btn btn-danger" id="clear-all-data">
+                            <i class="fas fa-trash"></i>
+                            Clear All Local Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                        <span>CalmConnect</span>
+                    </div>
+                    <p>Your mental wellness companion, supporting you every step of the way.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="mood-check.html">Mood Check</a></li>
+                        <li><a href="chatbot.html">Chat</a></li>
+                        <li><a href="self-care.html">Self-Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="emergency.html">Emergency Help</a></li>
+                        <li><a href="blog.html">Wellness Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Remember</h4>
+                    <p class="footer-note">If you're experiencing a mental health emergency, please contact emergency services or a crisis hotline immediately.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalmConnect. Made with ❤️ for mental wellness.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <script>
+const translations = {
+  en: {
+    home: "Home",
+    moodCheck: "Mood Check",
+    selfCare: "Self-Care",
+    emergency: "Emergency",
+    blog: "Blog",
+    pricing: "Pricing",
+    privacy: "Privacy",
+    privacyTitle: "Privacy Policy",
+    privacySubtitle: "Your privacy is important to us. Read how we protect your data.",
+    sectionTitle: "Information We Collect"
+  },
+  hi: {
+    home: "होम",
+    moodCheck: "मूड जांचें",
+    selfCare: "स्व-देखभाल",
+    emergency: "आपातकाल",
+    blog: "ब्लॉग",
+    pricing: "मूल्य निर्धारण",
+    privacy: "गोपनीयता",
+    privacyTitle: "गोपनीयता नीति",
+    privacySubtitle: "आपकी गोपनीयता हमारे लिए महत्वपूर्ण है। जानें कि हम आपके डेटा की सुरक्षा कैसे करते हैं।",
+    sectionTitle: "हम कौन सी जानकारी एकत्र करते हैं"
+  }
+};
+function translateSiteContent(lang) {
+  document.getElementById('nav-home').textContent = translations[lang].home;
+  document.getElementById('nav-mood').textContent = translations[lang].moodCheck;
+  document.getElementById('nav-selfcare').textContent = translations[lang].selfCare;
+  document.getElementById('nav-emergency').textContent = translations[lang].emergency;
+  document.getElementById('nav-blog').textContent = translations[lang].blog;
+  document.getElementById('nav-pricing').textContent = translations[lang].pricing;
+  document.getElementById('nav-privacy').textContent = translations[lang].privacy;
+  document.getElementById('privacy-title').textContent = translations[lang].privacyTitle;
+  document.getElementById('privacy-subtitle').textContent = translations[lang].privacySubtitle;
+  document.getElementById('privacy-section-title').textContent = translations[lang].sectionTitle;
+}
+function setLanguage(lang) {
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) selector.value = lang;
+  translateSiteContent(lang);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var savedLang = localStorage.getItem('siteLanguage') || 'en';
+  setLanguage(savedLang);
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) {
+    selector.value = savedLang;
+    selector.addEventListener('change', function() {
+      var selectedLang = this.value;
+      localStorage.setItem('siteLanguage', selectedLang);
+      setLanguage(selectedLang);
+    });
+  }
+});
+</script>
+</body>
+</html>
+

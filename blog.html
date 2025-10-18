@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Blog - CalmConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span id="app-title">CalmConnect</span>
+                <img id="institution-logo" src="" alt="Institution Logo" style="display: none; height: 30px; margin-left: 10px;">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a id="nav-home" href="../index.html" class="nav-link">Home</a>
+                <a id="nav-mood" href="mood-check.html" class="nav-link">Mood Check</a>
+                <a id="nav-selfcare" href="self-care.html" class="nav-link">Self-Care</a>
+                <a id="nav-emergency" href="emergency.html" class="nav-link">Emergency</a>
+                <a id="nav-blog" href="blog.html" class="nav-link active">Blog</a>
+                <li><a id="nav-pricing" href="pricing.html" class="nav-link">Pricing</a></li>
+                <a id="nav-privacy" href="privacy.html" class="nav-link">Privacy</a>
+                <a href="institutional.html" id="institutional-link" class="nav-link" style="display: none;">Dashboard</a>
+                <li style="margin-left: 18px;">
+                    <label for="chatbot-lang" style="font-size: 1rem; color: #5a8dee; font-weight: 500; margin-right: 4px;">Language:</label>
+                    <select id="chatbot-lang" style="border-radius: 8px; border: 1px solid #a5b4fc; padding: 2px 8px; font-size: 1rem; background: #fff; color: #3b466b; outline: none;">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="mr">मराठी</option>
+                    </select>
+                </li>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Section -->
+    <section class="section page-section">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="page-title" id="blog-title">Wellness Blog</h1>
+                <p class="section-subtitle" id="blog-subtitle">Tips, stories, and resources for your mental health journey</p>
+            </div>
+            
+            <div class="blog-grid">
+                <article class="blog-card featured">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop" alt="Mental wellness">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Featured</span>
+                            <span class="blog-date">Today</span>
+                        </div>
+                        <h3>5 Simple Ways to Boost Your Mental Health Daily</h3>
+                        <p>Discover practical, science-backed strategies you can implement today to improve your mental well-being...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=250&fit=crop" alt="Mindfulness">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Mindfulness</span>
+                            <span class="blog-date">2 days ago</span>
+                        </div>
+                        <h3>The Power of Mindful Breathing</h3>
+                        <p>Learn how simple breathing techniques can transform your stress levels and emotional well-being...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop" alt="Self-care">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Self-Care</span>
+                            <span class="blog-date">1 week ago</span>
+                        </div>
+                        <h3>Building a Sustainable Self-Care Routine</h3>
+                        <p>Create lasting habits that nurture your mental health without overwhelming your schedule...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop" alt="Stress management">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Stress Management</span>
+                            <span class="blog-date">1 week ago</span>
+                        </div>
+                        <h3>Understanding and Managing Stress</h3>
+                        <p>Learn to identify stress triggers and develop healthy coping mechanisms for a balanced life...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=400&h=250&fit=crop" alt="Sleep wellness">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Sleep Wellness</span>
+                            <span class="blog-date">2 weeks ago</span>
+                        </div>
+                        <h3>The Connection Between Sleep and Mental Health</h3>
+                        <p>Explore how quality sleep impacts your emotional well-being and practical tips for better rest...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=250&fit=crop" alt="Gratitude practice">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Gratitude</span>
+                            <span class="blog-date">2 weeks ago</span>
+                        </div>
+                        <h3>The Science of Gratitude and Happiness</h3>
+                        <p>Discover how practicing gratitude can rewire your brain for greater happiness and resilience...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="blog-load-more">
+                <button class="btn btn-outline">Load More Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                        <span>CalmConnect</span>
+                    </div>
+                    <p>Your mental wellness companion, supporting you every step of the way.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="mood-check.html">Mood Check</a></li>
+                        <li><a href="self-care.html">Self-Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="emergency.html">Emergency Help</a></li>
+                        <li><a href="blog.html">Wellness Blog</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Remember</h4>
+                    <p class="footer-note">If you're experiencing a mental health emergency, please contact emergency services or a crisis hotline immediately.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CalmConnect. Made with ❤️ for mental wellness.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <!-- Botpress Chatbot Widget START -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+    <script src="https://files.bpcontent.cloud/2025/07/18/05/20250718051507-2QEQV7KX.js" defer></script>
+    <!-- Botpress Chatbot Widget END -->
+    <script>
+const translations = {
+  en: {
+    home: "Home",
+    moodCheck: "Mood Check",
+    selfCare: "Self-Care",
+    emergency: "Emergency",
+    blog: "Blog",
+    pricing: "Pricing",
+    privacy: "Privacy",
+    blogTitle: "Wellness Blog",
+    blogSubtitle: "Tips, stories, and resources for your mental health journey",
+    sectionTitle: "Latest Articles"
+  },
+  hi: {
+    home: "होम",
+    moodCheck: "मूड जांचें",
+    selfCare: "स्व-देखभाल",
+    emergency: "आपातकाल",
+    blog: "ब्लॉग",
+    pricing: "मूल्य निर्धारण",
+    privacy: "गोपनीयता",
+    blogTitle: "कल्याण ब्लॉग",
+    blogSubtitle: "आपकी मानसिक स्वास्थ्य यात्रा के लिए सुझाव, कहानियाँ और संसाधन",
+    sectionTitle: "नवीनतम लेख"
+  }
+};
+function translateSiteContent(lang) {
+  document.getElementById('nav-home').textContent = translations[lang].home;
+  document.getElementById('nav-mood').textContent = translations[lang].moodCheck;
+  document.getElementById('nav-selfcare').textContent = translations[lang].selfCare;
+  document.getElementById('nav-emergency').textContent = translations[lang].emergency;
+  document.getElementById('nav-blog').textContent = translations[lang].blog;
+  document.getElementById('nav-pricing').textContent = translations[lang].pricing;
+  document.getElementById('nav-privacy').textContent = translations[lang].privacy;
+  document.getElementById('blog-title').textContent = translations[lang].blogTitle;
+  document.getElementById('blog-subtitle').textContent = translations[lang].blogSubtitle;
+  document.getElementById('blog-section-title').textContent = translations[lang].sectionTitle;
+}
+function setLanguage(lang) {
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) selector.value = lang;
+  translateSiteContent(lang);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var savedLang = localStorage.getItem('siteLanguage') || 'en';
+  setLanguage(savedLang);
+  var selector = document.getElementById('chatbot-lang');
+  if (selector) {
+    selector.value = savedLang;
+    selector.addEventListener('change', function() {
+      var selectedLang = this.value;
+      localStorage.setItem('siteLanguage', selectedLang);
+      setLanguage(selectedLang);
+    });
+  }
+});
+</script>
+    <script>
+(function() {
+  var navLinks = document.querySelectorAll('.nav-menu a');
+  var currentPath = window.location.pathname.replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/+$/, '');
+  navLinks.forEach(function(link) {
+    var temp = document.createElement('a');
+    temp.href = link.href;
+    var linkPath = temp.pathname.replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/+$/, '');
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+})();
+</script>
+</body>
+</html>
+
